@@ -1,0 +1,26 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @people.each do |person| %>
+			<tr>
+				<td><%= link_to person.name, person_path(person.id) %></td>
+				<td><%= link_to 'Edit', edit_person_path(person.id), class: 'btn btn-primary btn-xs' %> - <%=
+								link_to 'Remove', person_path(person.id),
+										method: :delete, 
+										data: { confirm: "Are you sure to remove #{person.name}?"}, class: 'btn btn-primary btn-xs'%>										
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td><ul class="pull-right"><%= link_to 'New', new_person_path, class: 'btn btn-primary btn-xs' %></ul></td>
+		</tr>
+	</tfoot>
+</table>

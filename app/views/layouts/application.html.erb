@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Motor</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+  	<%= render 'layouts/header' %>
+  	<div class="container">
+  		<div class="row">
+	  		<%= yield %>
+  		</div>
+  	</div>
+  </body>
+  <%= javascript_include_tag 'application' %>
+</html>
