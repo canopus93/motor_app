@@ -16,9 +16,22 @@
           <li class="active">
             <a href='javascript:;'>People</a>
           </li>
+          <li>
+            <%= link_to('Motor', motors_path) %>
+          </li>
+        <%elsif current_page?(controller: 'motors', action: 'index')%>
+          <li>
+            <%= link_to('People', people_path) %>
+          </li>
+          <li class="active">
+            <a href='javascript:;'>Motors</a>
+          </li>
         <%else%>
           <li>
-          <%= link_to('People', people_path) %>
+            <%= link_to('People', people_path) %>
+          </li>
+          <li>
+            <%= link_to('Motors', motors_path) %>
           </li>
         <%end%>
         

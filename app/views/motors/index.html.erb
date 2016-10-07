@@ -1,0 +1,28 @@
+<div class="col-sm-12 text-center"><h3>Motor List</h3></div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @motors.each do |motor| %>
+			<tr>
+				<td><%= link_to motor.name, motor_path(motor.id) %></td>
+				<td><%= link_to 'Edit', edit_motor_path(motor.id), class: 'btn btn-primary btn-xs' %> - <%=
+								link_to 'Remove', motor_path(motor.id),
+										method: :delete, 
+										data: { confirm: "Are you sure to remove #{motor.name}?"}, class: 'btn btn-primary btn-xs'%>										
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td><ul class="pull-right"><%= link_to 'New', new_motor_path, class: 'btn btn-primary btn-xs' %></ul></td>
+		</tr>
+	</tfoot>
+</table>

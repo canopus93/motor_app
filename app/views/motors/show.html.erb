@@ -1,0 +1,17 @@
+<div class="col-sm-12 text-center"><h3>Motor Details</h3></div>
+<div class="text-center">
+	<p>
+	  <strong>Name :</strong>
+	  <%= @motor.name %>
+	</p>
+	
+	<p>
+	  <strong>Velocity :</strong>
+	  <%= "#{@motor.velocity} m/s" %>
+	</p>
+
+	<p>
+	  <strong>Fuel :</strong>
+	  <%= "#{@motor.current_fuel}/#{@motor.max_fuel} litre" %>
+	</p>
+</div>
