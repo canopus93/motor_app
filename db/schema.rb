@@ -16,19 +16,19 @@ ActiveRecord::Schema.define(version: 20161007090502) do
   enable_extension "plpgsql"
 
   create_table "motors", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "velocity"
-    t.decimal  "current_fuel"
-    t.decimal  "max_fuel"
+    t.string   "name",         null: false
+    t.decimal  "velocity",     null: false
+    t.decimal  "current_fuel", null: false
+    t.decimal  "max_fuel",     null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "money"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                                null: false
+    t.decimal  "money",      precision: 20, scale: 3, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end
