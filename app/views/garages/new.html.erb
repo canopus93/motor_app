@@ -1,0 +1,31 @@
+<h2 class="text-center">Add motor to <%= @person.name %></h2>
+<%= form_for [@person, @garage], html: {class: 'form-horizontal'} do |f| %>
+	<% if @garage.errors.any? %>
+		<div class="col-sm-2"></div>
+    <div class="col-sm-8 alert-danger">
+      <h2 class="text-center">
+        <%= pluralize(@garage.errors.count, "error") %> prohibited
+        this garage from being saved :
+      </h2>
+      <ul class="col-sm-offset-1">
+        <% @garage.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+		<div class="col-sm-2"></div>
+  <% end %>
+
+  <div class="form-group col-sm-12">
+		<div class="col-sm-3"></div>
+		<%= f.label :motor, class: 'control-label col-sm-2' %>
+		<div class="col-sm-4">
+    	<%= f.select :motor, options_for_select(Motor.all.collect{ |motor| [motor.name, motor.id] }), {prompt: "-- Select --"}, {class: 'form-control', required: true} %>
+    </div>
+		<div class="col-sm-3"></div>
+	</div>
+
+	<div class="col-sm-12">
+		<%= f.submit class: 'btn btn-default center-block' %>
+	</div>
+<% end %>

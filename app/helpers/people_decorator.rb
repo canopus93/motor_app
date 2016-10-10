@@ -50,10 +50,10 @@ class PeopleDecorator
 
 		def generate_garages_result(person:)
 			results = []
-			person.motors.each do |motor|
+			person.garages.each do |garage|
 				result = GarageDecoratorResult.new
-				result.link_to_show = link_to_show_motor(motor)
-				result.link_to_delete = link_to_delete_motor(person: person, motor: motor)
+				result.link_to_show = link_to_show_motor(garage.motor)
+				result.link_to_delete = link_to_delete_motor(person: person, garage: garage)
 
 				results << result
 			end
@@ -78,9 +78,9 @@ class PeopleDecorator
 			@context.helpers.link_to motor.name, motor_path(motor.id)
 		end
 
-		def link_to_delete_motor(person:, motor:)
-			@context.helpers.link_to 'Remove', person_garage_path(person.id, motor.id),
+		def link_to_delete_motor(person:, garage:)
+			@context.helpers.link_to 'Remove', person_garage_path(person.id, garage.id),
 										method: :delete, 
-										data: { confirm: "Are you sure to remove #{motor.name} from #{person.name}?"}, class: 'btn btn-primary btn-xs'
+										data: { confirm: "Are you sure to remove #{garage.motor.name} from #{person.name}?"}, class: 'btn btn-primary btn-xs'
 		end
 end

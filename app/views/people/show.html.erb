@@ -9,30 +9,29 @@
 	  <strong>Money :</strong>
 	  <%= @person.money %>
 	</p>
-
-	<div class="col-md-6 col-md-offset-3">
-		<p class="pull-left">Garage</p>
-		<table class="table">
-			<thead>
+</div>
+<div class="col-md-6 col-md-offset-3">
+	<p>Garage</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Motor Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @person.garages.each do |garage| %>
 				<tr>
-					<th>Motor Name</th>
-					<th>Action</th>
+					<td><%= garage.link_to_show %></td>
+					<td><%= garage.link_to_delete %></td>
 				</tr>
-			</thead>
-			<tbody>
-				<% @person.garages.each do |garage| %>
-					<tr>
-						<td><%= garage.link_to_show %></td>
-						<td><%= garage.link_to_delete %></td>
-					</tr>
-				<% end %>
-			</tbody>
-				<tfoot>
-					<tr>
-						<td></td>
-						<td><ul class="pull-right"><%= link_to 'Add', new_person_garage_path(@person.id), class: 'btn btn-primary btn-xs' %></ul></td>
-					</tr>
-				</tfoot>
-		</table>
-	</div>
+			<% end %>
+		</tbody>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td><ul class="pull-right"><%= link_to 'Add', new_person_garage_path(@person.id), class: 'btn btn-primary btn-xs' %></ul></td>
+				</tr>
+			</tfoot>
+	</table>
 </div>
