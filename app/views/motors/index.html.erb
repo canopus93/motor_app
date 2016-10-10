@@ -10,11 +10,9 @@
 	<tbody>
 		<% @motors.each do |motor| %>
 			<tr>
-				<td><%= link_to motor.name, motor_path(motor.id) %></td>
-				<td><%= link_to 'Edit', edit_motor_path(motor.id), class: 'btn btn-primary btn-xs' %> - <%=
-								link_to 'Remove', motor_path(motor.id),
-										method: :delete, 
-										data: { confirm: "Are you sure to remove #{motor.name}?"}, class: 'btn btn-primary btn-xs'%>										
+				<td><%= motor.link_to_show %></td>
+				<td><%= motor.link_to_edit %> - <%=
+								motor.link_to_delete %>										
 				</td>
 			</tr>
 		<% end %>

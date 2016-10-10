@@ -1,10 +1,12 @@
 class MotorsController < ApplicationController
 	def index
-		@motors = Motor.all
+		decorator = MotorsDecorator.new(self)
+		@motors = decorator.decorate_for_index(Motor.all)
 	end
 
 	def show
-		@motor = Motor.find(params[:id])
+		decorator = MotorsDecorator.new(self)
+		@motor = decorator.decorate_for_show(Motor.find(params[:id]))
 	end
 
 	def new
