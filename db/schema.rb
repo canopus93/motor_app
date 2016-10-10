@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007090502) do
+ActiveRecord::Schema.define(version: 20161007101436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "garages", force: :cascade do |t|
+    t.integer  "people_id"
+    t.integer  "motors_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["motors_id"], name: "index_garages_on_motors_id", using: :btree
+    t.index ["people_id"], name: "index_garages_on_people_id", using: :btree
+  end
+
   create_table "motors", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.decimal  "velocity",     null: false
-    t.decimal  "current_fuel", null: false
-    t.decimal  "max_fuel",     null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name",                                  null: false
+    t.decimal  "velocity",     precision: 20, scale: 3, null: false
+    t.decimal  "current_fuel", precision: 20, scale: 3, null: false
+    t.decimal  "max_fuel",     precision: 20, scale: 3, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "people", force: :cascade do |t|
@@ -31,4 +40,6 @@ ActiveRecord::Schema.define(version: 20161007090502) do
     t.datetime "updated_at",                          null: false
   end
 
+  add_foreign_key "garages", "motors", column: "motors_id"
+  add_foreign_key "garages", "people", column: "people_id"
 end
