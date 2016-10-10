@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(version: 20161007101436) do
   end
 
   create_table "motors", force: :cascade do |t|
-    t.string   "name",                                  null: false
-    t.decimal  "velocity",     precision: 20, scale: 3, null: false
-    t.decimal  "current_fuel", precision: 20, scale: 3, null: false
-    t.decimal  "max_fuel",     precision: 20, scale: 3, null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "name",                                        null: false
+    t.decimal  "velocity",           precision: 20, scale: 3, null: false
+    t.decimal  "current_fuel",       precision: 20, scale: 3, null: false
+    t.decimal  "max_fuel",           precision: 20, scale: 3, null: false
+    t.decimal  "distance_travelled", precision: 20, scale: 3, null: false
+    t.decimal  "time_travelled",     precision: 20, scale: 3, null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   create_table "people", force: :cascade do |t|

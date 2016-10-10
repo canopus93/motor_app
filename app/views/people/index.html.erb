@@ -8,10 +8,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @people.each do |person| %>
+		<% @decorated_people.each do |decorated_person| %>
 			<tr>
-				<td><%= person.link_to_show %></td>
-				<td><%= person.link_to_edit %> <%= person.link_to_delete %>										
+				<td><%= decorated_person.link_to_show %></td>
+				<td><%= decorated_person.link_to_edit %> <%= decorated_person.link_to_delete %>										
 				</td>
 			</tr>
 		<% end %>

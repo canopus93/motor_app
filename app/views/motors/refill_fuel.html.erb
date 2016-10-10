@@ -1,0 +1,17 @@
+<div class="col-md-6 col-md-offset-3">
+	<p class="text-center"><%= @motor.name %></p>
+
+	<%= form_tag(refill_motor_path(@motor.id), method: "patch", class: 'form-horizontal', enforce_utf8: false) do %>
+		<%= render 'layouts/error_message' %>
+		<h4 class="text-center"><%= "Current Fuel : #{@motor.current_fuel}/#{@motor.max_fuel} litre" %></h4>
+		<div class="col-md-12 form-group">
+			<div class="col-md-2"></div>
+			<%= label_tag :refill_amount, nil, class: 'control-label col-md-3' %>
+      <div class="col-md-4">
+      	<%= text_field_tag :refill_amount, params[:refill_amount], class: 'form-control', required: true %>
+      </div>
+      <div class="col-md-3"><%= label_tag 'litre', nil, class: 'control-label pull-left'%></div>
+    </div>
+    <div class="text-center form-group col-md-12"><%= submit_tag :submit, class: 'btn btn-default' %></div>
+  <% end %>
+</div>

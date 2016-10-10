@@ -1,0 +1,12 @@
+<% if @motor.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <div>
+      The form contains <%= pluralize(@motor.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @motor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

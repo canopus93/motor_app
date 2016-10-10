@@ -1,0 +1,37 @@
+<div class="col-md-6 col-md-offset-3">
+	<p class="text-center"><%= @motor.name %></p>
+
+	<%= form_tag(ride_motor_path(@motor.id), method: "patch", class: 'form-horizontal', enforce_utf8: false) do %>
+		<%= render 'layouts/error_message' %>
+		<div class="text-center">
+			<p>
+			  <strong>Velocity :</strong>
+			  <%= "#{@motor.velocity} m/s" %>
+			</p>
+
+			<p>
+			  <strong>Fuel :</strong>
+			  <%= "#{@motor.current_fuel}/#{@motor.max_fuel} litre" %>
+			</p>
+
+			<p>
+				<strong>Distance Travelled :</strong>
+				<%= "#{@motor.distance_travelled} m" %>
+			</p>
+
+			<p>
+				<strong>Time Travelled :</strong>
+				<%= "#{@motor.time_travelled} s" %>
+			</p>
+		</div>
+		<div class="col-md-12 form-group">
+			<div class="col-md-2"></div>
+			<%= label_tag :ride_time, nil, class: 'control-label col-md-3' %>
+      <div class="col-md-4">
+      	<%= text_field_tag :ride_time, params[:ride_time], class: 'form-control', required: true %>
+      </div>
+      <div class="col-md-3"><%= label_tag 's', nil, class: 'control-label pull-left'%></div>
+    </div>
+    <div class="text-center form-group col-md-12"><%= submit_tag :submit, class: 'btn btn-default' %></div>
+  <% end %>
+</div>

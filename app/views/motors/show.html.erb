@@ -2,16 +2,32 @@
 <div class="text-center">
 	<p>
 	  <strong>Name :</strong>
-	  <%= @motor.name %>
+	  <%= @decorated_motor.name %>
 	</p>
 	
 	<p>
 	  <strong>Velocity :</strong>
-	  <%= @motor.velocity %>
+	  <%= @decorated_motor.show_velocity %>
 	</p>
 
 	<p>
 	  <strong>Fuel :</strong>
-	  <%= @motor.current_fuel %>
+	  <%= @decorated_motor.show_current_fuel %>
 	</p>
+
+	<p>
+		<strong>Distance Travelled :</strong>
+		<%= @decorated_motor.show_distance_travelled %>
+	</p>
+
+	<p>
+		<strong>Time Travelled :</strong>
+		<%= @decorated_motor.show_time_travelled %>
+	</p>
+
+	<div class="center-block">
+		<%= @decorated_motor.link_to_refill if @decorated_motor.able_to_refill %>
+		<%= @decorated_motor.link_to_ride if @decorated_motor.able_to_ride %>
+		<%= @decorated_motor.link_to_reset %>
+	</div>
 </div>
