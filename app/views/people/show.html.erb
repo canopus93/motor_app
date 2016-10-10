@@ -23,7 +23,7 @@
 			<% @person.garages.each do |garage| %>
 				<tr>
 					<td><%= garage.link_to_show %></td>
-					<td><%= garage.link_to_delete %></td>
+					<td><%= garage.link_to_edit %> <%= garage.link_to_delete %></td>
 				</tr>
 			<% end %>
 		</tbody>

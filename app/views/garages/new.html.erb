@@ -20,7 +20,7 @@
 		<div class="col-sm-3"></div>
 		<%= f.label :motor, class: 'control-label col-sm-2' %>
 		<div class="col-sm-4">
-    	<%= f.select :motor, options_for_select(Motor.all.collect{ |motor| [motor.name, motor.id] }), {prompt: "-- Select --"}, {class: 'form-control', required: true} %>
+    	<%= f.select :motor, options_for_select(Motor.where("id NOT IN (SELECT motor_id FROM Garages)").collect{ |motor| [motor.name, motor.id] }), {prompt: "-- Select --"}, {class: 'form-control', required: true} %>
     </div>
 		<div class="col-sm-3"></div>
 	</div>

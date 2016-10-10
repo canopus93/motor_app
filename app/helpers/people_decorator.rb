@@ -14,6 +14,7 @@ class PeopleDecorator
 
 	GarageDecoratorResult = Struct.new(
 		:link_to_show,
+		:link_to_edit,
 		:link_to_delete
 	)
 
@@ -53,6 +54,7 @@ class PeopleDecorator
 			person.garages.each do |garage|
 				result = GarageDecoratorResult.new
 				result.link_to_show = link_to_show_motor(garage.motor)
+				result.link_to_edit = link_to_edit_motor(garage.motor)
 				result.link_to_delete = link_to_delete_motor(person: person, garage: garage)
 
 				results << result
@@ -76,6 +78,10 @@ class PeopleDecorator
 
 		def link_to_show_motor(motor)
 			@context.helpers.link_to motor.name, motor_path(motor.id)
+		end
+
+		def link_to_edit_motor(motor)
+			@context.helpers.link_to 'Edit', edit_motor_path(motor.id), class: 'btn btn-primary btn-xs'
 		end
 
 		def link_to_delete_motor(person:, garage:)

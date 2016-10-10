@@ -11,8 +11,7 @@
 		<% @motors.each do |motor| %>
 			<tr>
 				<td><%= motor.link_to_show %></td>
-				<td><%= motor.link_to_edit %> - <%=
-								motor.link_to_delete %>										
+				<td><%= motor.link_to_edit %> <%= motor.link_to_delete %>										
 				</td>
 			</tr>
 		<% end %>

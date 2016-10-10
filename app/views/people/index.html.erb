@@ -11,8 +11,7 @@
 		<% @people.each do |person| %>
 			<tr>
 				<td><%= person.link_to_show %></td>
-				<td><%= person.link_to_edit %> - <%=
-								person.link_to_delete %>										
+				<td><%= person.link_to_edit %> <%= person.link_to_delete %>										
 				</td>
 			</tr>
 		<% end %>
