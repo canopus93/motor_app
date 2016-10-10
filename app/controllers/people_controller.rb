@@ -1,10 +1,12 @@
 class PeopleController < ApplicationController
 	def index
-		@people = Person.all
+		decorator = PeopleDecorator.new(self)
+		@people = decorator.decorate_for_index(Person.all)
 	end
 
 	def show
-		@person = Person.find(params[:id])
+		decorator = PeopleDecorator.new(self)
+		@person = decorator.decorate_for_show(Person.find(params[:id]))
 	end
 
 	def new
