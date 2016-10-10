@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :motors
   resources :people do
-  	resources :garages, only: [:new, :destroy]
+  	resources :garages, only: [:new, :create, :destroy]
   end
 end

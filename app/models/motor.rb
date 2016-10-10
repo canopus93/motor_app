@@ -1,6 +1,6 @@
 class Motor < ApplicationRecord
-	has_many :garages, dependent: :destroy
-	has_many :people, through: :garages
+	has_one :garage, dependent: :destroy
+	has_one :person, through: :garage
 	validates :name, presence: true
 	validates :velocity, presence: true,
 										numericality: { greater_than: 0 }

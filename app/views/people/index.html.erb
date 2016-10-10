@@ -10,11 +10,8 @@
 	<tbody>
 		<% @people.each do |person| %>
 			<tr>
-				<td><%= link_to person.name, person_path(person.id) %></td>
-				<td><%= link_to 'Edit', edit_person_path(person.id), class: 'btn btn-primary btn-xs' %> - <%=
-								link_to 'Remove', person_path(person.id),
-										method: :delete, 
-										data: { confirm: "Are you sure to remove #{person.name}?"}, class: 'btn btn-primary btn-xs'%>										
+				<td><%= person.link_to_show %></td>
+				<td><%= person.link_to_edit %> <%= person.link_to_delete %>										
 				</td>
 			</tr>
 		<% end %>
