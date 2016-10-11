@@ -9,6 +9,7 @@ class GaragesController < ApplicationController
 		@garage = person.garages.create(motor_id: params[:garage]["motor"])
 
 		if @garage.save
+			flash[:success] = "Success add motor to garage!"
 			redirect_to person_path(params[:person_id])
 		else
 			render 'new'
@@ -20,6 +21,7 @@ class GaragesController < ApplicationController
 		@garage = person.garages.find(params[:id])
 		@garage.destroy
 
+		flash[:success] = "Success remove motor from garage!"
 		redirect_to person_path(params[:person_id])
 	end
 end

@@ -1,4 +1,4 @@
-namespace :drop_and_seed do
+namespace :motor_app do
 	task :drop_and_seed => :environment do
 		Rake::Task['db:drop'].invoke
 		Rake::Task['db:create'].invoke

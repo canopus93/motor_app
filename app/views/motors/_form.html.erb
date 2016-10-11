@@ -1,62 +1,42 @@
-<div class="col-sm-12 text-center"><h3>Motor Form</h3></div>
+<h3><p class="text-center">Motor Form</p></h3>
 
-<%= form_for @motor, html: {class: 'form-horizontal'} do |f| %>
-	<% if @motor.errors.any? %>
-		<div class="col-sm-2"></div>
-    <div class="col-sm-8 alert-danger">
-      <h2 class="text-center">
-        <%= pluralize(@motor.errors.count, "error") %> prohibited
-        this motor from being saved :
-      </h2>
-      <ul class="col-sm-offset-1">
-        <% @motor.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-		<div class="col-sm-2"></div>
-  <% end %>
+<div class="col-md-6 col-md-offset-3">
+	<%= form_for @motor, html: {class: 'form-horizontal'} do |f| %>
+		<%= render 'layouts/error_message', error_object: @motor.errors %>	
 
-	<div class="form-group col-sm-12">
-		<div class="col-sm-3"></div>
-		<%= f.label :name, class: 'control-label col-sm-2' %>
-		<div class="col-sm-4">
-    	<%= f.text_field :name, class: 'form-control' %>
-    </div>
-		<div class="col-sm-3"></div>
-	</div>
+		<div class="form-group col-sm-12">
+			<%= f.label :name, class: 'control-label col-sm-4' %>
+			<div class="col-sm-8">
+	    	<%= f.text_field :name, class: 'form-control' %>
+	    </div>
+		</div>
 
-	<div class="form-group col-sm-12">
-		<div class="col-sm-3"></div>
-		<%= f.label :velocity, class: 'control-label col-sm-2' %>
-		<div class="col-sm-4">
-    	<%= f.text_field :velocity, class: 'form-control' %>
-    </div>
-		<div class="col-sm-3"></div>
-	</div>
+		<div class="form-group col-sm-12">
+			<%= f.label :velocity, class: 'control-label col-sm-4' %>
+			<div class="col-sm-8">
+	    	<%= f.text_field :velocity, class: 'form-control' %>
+	    </div>
+		</div>
 
-	<div class="form-group col-sm-12">
-		<div class="col-sm-3"></div>
-		<%= f.label :current_fuel, class: 'control-label col-sm-2' %>
-		<div class="col-sm-4">
-    	<%= f.text_field :current_fuel, class: 'form-control' %>
-    </div>
-		<div class="col-sm-3"></div>
-	</div>
+		<div class="form-group col-sm-12">
+			<%= f.label :current_fuel, class: 'control-label col-sm-4' %>
+			<div class="col-sm-8">
+	    	<%= f.text_field :current_fuel, class: 'form-control' %>
+	    </div>
+		</div>
 
-	<div class="form-group col-sm-12">
-		<div class="col-sm-3"></div>
-		<%= f.label :max_fuel, class: 'control-label col-sm-2' %>
-		<div class="col-sm-4">
-    	<%= f.text_field :max_fuel, class: 'form-control' %>
-    </div>
-		<div class="col-sm-3"></div>
-	</div>
+		<div class="form-group col-sm-12">
+			<%= f.label :max_fuel, class: 'control-label col-sm-4' %>
+			<div class="col-sm-8">
+	    	<%= f.text_field :max_fuel, class: 'form-control' %>
+	    </div>
+		</div>
 
-	<%= f.hidden_field :distance_travelled, value: 0 %>
-	<%= f.hidden_field :time_travelled, value: 0 %>
+		<%= f.hidden_field :distance_travelled, value: 0 %>
+		<%= f.hidden_field :time_travelled, value: 0 %>
 
-	<div class="col-sm-12">
-		<%= f.submit class: 'btn btn-default center-block' %>
-	</div>
-<% end %>
+		<div class="col-sm-12">
+			<%= f.submit class: 'btn btn-default center-block' %>
+		</div>
+	<% end %>
+</div>

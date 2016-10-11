@@ -1,8 +1,8 @@
 <div class="col-md-6 col-md-offset-3">
 	<p class="text-center"><%= @motor.name %></p>
 
-	<%= form_tag(refill_motor_path(@motor.id), method: "patch", class: 'form-horizontal', enforce_utf8: false) do %>
-		<%= render 'layouts/error_message' %>
+	<%= form_tag(refill_motor_path(@motor.id), class: 'form-horizontal', enforce_utf8: false) do %>
+		<%= render 'layouts/error_message', error_object: @motor.errors %>	
 		<h4 class="text-center"><%= "Current Fuel : #{@motor.current_fuel}/#{@motor.max_fuel} litre" %></h4>
 		<div class="col-md-12 form-group">
 			<div class="col-md-2"></div>

@@ -1,8 +1,8 @@
 <div class="col-md-6 col-md-offset-3">
 	<p class="text-center"><%= @motor.name %></p>
 
-	<%= form_tag(ride_motor_path(@motor.id), method: "patch", class: 'form-horizontal', enforce_utf8: false) do %>
-		<%= render 'layouts/error_message' %>
+	<%= form_tag(ride_motor_path(@motor.id), class: 'form-horizontal', enforce_utf8: false) do %>
+		<%= render 'layouts/error_message', error_object: @motor.errors %>	
 		<div class="text-center">
 			<p>
 			  <strong>Velocity :</strong>

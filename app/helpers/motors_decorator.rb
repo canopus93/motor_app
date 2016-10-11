@@ -85,7 +85,7 @@ class MotorsDecorator
 
 		def link_to_reset(motor)
 			@context.helpers.link_to 'Reset', reset_motor_path(motor.id),
-										method: :patch, 
+										method: :post, 
 										data: { confirm: "Are you sure to reset #{motor.name}?"}, class: 'btn btn-primary btn-xs'
 		end
 
